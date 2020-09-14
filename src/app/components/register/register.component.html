@@ -1,0 +1,119 @@
+<div class="container" align="center" >
+
+	<br>
+
+	<div  class="card bg-light" align="center"  dir="rtl"  style="width:80%;"> 
+ 
+
+		<div class="container">
+		  <div > <!-- this div tag has row class-->
+			<div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+			  <form  [formGroup]="registerForm" (ngSubmit)="insert()">
+	  
+				<br>
+				<div class="form-group">
+				  <label for="name">نام</label>
+				  <input
+					type="text"
+					id="name"
+					formControlName="name"
+					class="form-control"
+					[(ngModel)]="this.customer.name">
+				</div>
+	  
+	  
+				<li class="help-block" *ngIf="!registerForm.get('name').valid && registerForm.get('name').touched">
+					لطفا نام را وارد کنید
+				</li>
+	  
+	  
+				<div class="form-group">
+				  <label for="lastName">نام خانوادگی</label>
+				  <input
+					type="text"
+					id="lastName"
+					formControlName="lastName"
+					class="form-control"
+					[(ngModel)]="this.customer.lastName">
+				</div>
+	  
+	  
+				<li class="help-block" *ngIf="!registerForm.get('lastName').valid && registerForm.get('lastName').touched">
+					لطفا نام خانوادگی را وارد کنید
+				</li>
+	  
+	  
+	  
+				<div class="form-group">
+				  <label for="internationalCode">کد ملی</label>
+				  <input
+					type="text"
+					id="internationalCode"
+					formControlName="internationalCode"
+					class="form-control"
+					[(ngModel)]="this.customer.internationalCode">
+				</div>
+	  
+	  
+				<li class="help-block" *ngIf="!registerForm.get('internationalCode').valid && registerForm.get('internationalCode').errors['required'] && registerForm.get('internationalCode').touched">
+					لطفا کد ملی را وارد کنید
+				</li>
+				<li class="help-block" *ngIf="!registerForm.get('internationalCode').valid && registerForm.get('internationalCode').touched && registerForm.get('internationalCode').errors['maxlength']">
+					کد ملی حداکثر باید 10 رقم باشد
+				</li>
+				<li class="help-block" *ngIf="!registerForm.get('internationalCode').valid && registerForm.get('internationalCode').touched && registerForm.get('internationalCode').errors['pattern']">
+					برای کد ملی یک نوع معتبر از نوع عدد وارد کنید
+				</li>
+	  
+	  
+				<div class="form-group">
+				  <label for="phoneNumber">شماره تماس</label>
+				  <input
+					type="text"
+					id="phoneNumber"
+					formControlName="phoneNumber"
+					class="form-control"
+					[(ngModel)]="this.customer.telephoneNumber">
+				</div>
+	  
+				<li class="help-block" *ngIf="!registerForm.get('phoneNumber').valid && registerForm.get('phoneNumber').errors['required'] && registerForm.get('phoneNumber').touched">
+					لطفا شماره تماس را وارد کنید
+				</li>
+				<li class="help-block" *ngIf="!registerForm.get('phoneNumber').valid && registerForm.get('phoneNumber').touched && registerForm.get('phoneNumber').errors['maxlength']">
+					شماره تماس حداکثر باید 20 رقم باشد
+				</li>
+				<li class="help-block" *ngIf="!registerForm.get('phoneNumber').valid && registerForm.get('phoneNumber').touched && registerForm.get('phoneNumber').errors.pattern">
+					برای شماره تماس یک نوع معتبر از نوع عدد وارد کنید
+				</li>
+	  
+				<div class="form-group">
+				  <label for="address">آدرس</label>
+				 <textarea 
+				 id="address" 
+				 class="md-textarea form-control" 
+				 formControlName="address" 
+				 rows="3"
+				 [(ngModel)]="this.customer.address"></textarea>
+				</div>
+	  
+	  
+				<li class="help-block" *ngIf="!registerForm.get('address').valid && registerForm.get('address').touched">
+					لطفا آدرس  را وارد کنید
+				</li>
+	   
+				<br>
+				<div align="center" dir="ltr"   >
+					
+				<button class="btn btn-success" type="submit" style="align-self: flex-start; width:70%;">ثبت</button>
+				
+			  </div>
+	  
+			  </form>
+			</div>
+		  </div>
+		</div>
+	    <br>
+	   </div>
+</div>
+
+ 
